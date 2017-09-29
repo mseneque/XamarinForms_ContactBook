@@ -13,7 +13,7 @@ namespace XamarinForms_ContactBook
         {
             InitializeComponent();
 
-            MainPage = new XamarinForms_ContactBook.MainPage();
+            MainPage = new NavigationPage( new XamarinForms_ContactBook.MainPage() );
         }
 
         protected override void OnStart()

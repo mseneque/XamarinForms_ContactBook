@@ -4,8 +4,27 @@
              xmlns:local="clr-namespace:XamarinForms_ContactBook"
              x:Class="XamarinForms_ContactBook.MainPage">
 
-	<Label Text="Welcome to Xamarin Forms!" 
-           VerticalOptions="Center" 
-           HorizontalOptions="Center" />
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Clicked="AddContact_OnClicked" Order="Primary"/>
+    </ContentPage.ToolbarItems>
+    
+	<ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="contactBook"
+                      ItemSelected="ContactBook_OnItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell  Text="{Binding FullName}">
+                            <TextCell.ContextActions>
+                                <MenuItem Text="Delete" Clicked="DeleteItem_OnClicked" IsDestructive="True" CommandParameter="{Binding .}" />
+                            </TextCell.ContextActions>
+                        </TextCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                
+                
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
 
 </ContentPage>
